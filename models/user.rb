@@ -35,68 +35,14 @@ class User
       errors.add(:base, "Password must be at least 4 chars long") if self.password.to_s.size.to_i < 4
     end
   end
-
-  def self.token_authenticate(email, auth_token)
-    user = first(:conditions => {:email => email})
-    return user if user && user.matching_token?(auth_token)
-  end
   
   def self.authenticate(email, password)
     user = first(:conditions => {:email => email})
     return user if user and user.matching_password?(password)
   end
-
-  def matching_token?(auth_token)
-    self.authentication_token == auth_token
-  end
   
   def matching_password?(pass)
     self.password_hash == encrypt_password(pass)
-  end
-  
-  # Taken from devise
-  
-  # Generate new authentication token (a.k.a. "single access token").
-  def reset_authentication_token
-    self.authentication_token = self.class.authentication_token
-  end
-
-  # Generate new authentication token and save the record.
-  def reset_authentication_token!
-    reset_authentication_token
-    self.save(:validate => false)
-  end
-
-  # Generate authentication token unless already exists.
-  def ensure_authentication_token
-    self.reset_authentication_token if self.authentication_token.blank?
-  end
-
-  # Generate authentication token unless already exists and save the record.
-  def ensure_authentication_token!
-    self.reset_authentication_token! if self.authentication_token.blank?
-  end
-  
-  # Generate a token checking if one does not already exist in the database.
-  def authentication_token
-    generate_token(:authentication_token)
-  end
-  
-  def find_for_token_authentication(conditions)
-    find_for_authentication(:authentication_token => conditions[token_authentication_key])
-  end
-  
-  # Generate a friendly string randomically to be used as token.
-  def self.friendly_token
-    ActiveSupport::SecureRandom.base64(15).tr('+/=', '-_ ').strip.delete("\n")
-  end
-  
-  # Generate a token by looping and ensuring does not already exist.
-  def generate_token(column)
-    loop do
-      token = User.friendly_token
-      break token unless find(:first, :conditions => { column => token })
-    end
   end
 
   private
