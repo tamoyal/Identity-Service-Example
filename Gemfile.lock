@@ -1,6 +1,5 @@
 GEM
   remote: http://rubygems.org/
-  remote: http://rubygems.org/
   specs:
     activemodel (3.0.3)
       activesupport (= 3.0.3)
@@ -42,7 +41,7 @@ GEM
     tilt (1.2.2)
     tzinfo (0.3.24)
     will_paginate (3.0.pre2)
-    yajl-ruby (0.7.9)
+    yajl-ruby (1.4.3)
 
 PLATFORMS
   ruby
