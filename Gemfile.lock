@@ -1,6 +1,5 @@
 GEM
   remote: http://rubygems.org/
-  remote: http://rubygems.org/
   specs:
     activemodel (3.0.3)
       activesupport (= 3.0.3)
@@ -21,7 +20,7 @@ GEM
       mongo (~> 1.1.5)
       tzinfo (~> 0.3.22)
       will_paginate (~> 3.0.pre)
-    rack (1.2.1)
+    rack (1.6.13)
     rack-test (0.5.7)
       rack (>= 1.0)
     rspec (2.4.0)
