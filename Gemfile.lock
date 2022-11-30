@@ -1,6 +1,5 @@
 GEM
   remote: http://rubygems.org/
-  remote: http://rubygems.org/
   specs:
     activemodel (3.0.3)
       activesupport (= 3.0.3)
@@ -21,7 +20,11 @@ GEM
       mongo (~> 1.1.5)
       tzinfo (~> 0.3.22)
       will_paginate (~> 3.0.pre)
-    rack (1.2.1)
+    mustermann (2.0.2)
+      ruby2_keywords (~> 0.0.1)
+    rack (2.2.4)
+    rack-protection (2.2.3)
+      rack
     rack-test (0.5.7)
       rack (>= 1.0)
     rspec (2.4.0)
@@ -32,14 +35,17 @@ GEM
     rspec-expectations (2.4.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.4.0)
-    sinatra (1.1.2)
-      rack (~> 1.1)
-      tilt (~> 1.2)
+    ruby2_keywords (0.0.5)
+    sinatra (2.2.3)
+      mustermann (~> 2.0)
+      rack (~> 2.2)
+      rack-protection (= 2.2.3)
+      tilt (~> 2.0)
     sinatra-mongoid (0.0.2)
       mongo_ext
       mongoid
       sinatra
-    tilt (1.2.2)
+    tilt (2.0.11)
     tzinfo (0.3.24)
     will_paginate (3.0.pre2)
     yajl-ruby (0.7.9)
@@ -52,6 +58,6 @@ DEPENDENCIES
   bson_ext (= 1.1.5)
   rack-test
   rspec (= 2.4.0)
-  sinatra (= 1.1.2)
+  sinatra (= 2.2.3)
   sinatra-mongoid
   yajl-ruby

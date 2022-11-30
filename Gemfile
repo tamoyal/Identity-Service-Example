@@ -1,7 +1,7 @@
 source :rubygems
 source :rubyforge
 
-gem 'sinatra', '1.1.2'
+gem 'sinatra', '2.2.3'
 gem 'sinatra-mongoid', :require => 'sinatra/mongoid'
 
 gem "bson_ext", "1.1.5"
